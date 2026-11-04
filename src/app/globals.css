@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+/*
+ * Valexity design tokens.
+ * Brand colours are sampled from the Valexity logo: violet blades and an orange accent blade.
+ * Ink is a violet-tinted near-black so dark sections feel on-brand rather than generic grey.
+ */
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-50: #f7f1fe;
+  --color-brand-100: #eee2fd;
+  --color-brand-200: #dcc6fb;
+  --color-brand-300: #c39cf6;
+  --color-brand-400: #ac6fef;
+  --color-brand-500: #9a4ee6;
+  --color-brand-600: #8233cf;
+  --color-brand-700: #6c27ad;
+  --color-brand-800: #58228b;
+  --color-brand-900: #491f71;
+
+  --color-ember-300: #ffb08a;
+  --color-ember-400: #ff8a50;
+  --color-ember-500: #ff5f1f;
+  --color-ember-600: #e94a0c;
+
+  --color-ink-950: #0b0912;
+  --color-ink-900: #13101d;
+  --color-ink-800: #1d1929;
+  --color-ink-700: #2b2639;
+  --color-ink-600: #4a4459;
+  --color-ink-500: #6b6579;
+  --color-ink-400: #938da0;
+  --color-ink-300: #bdb8c7;
+  --color-ink-200: #dedae4;
+  --color-ink-100: #efedf2;
+  --color-ink-50: #f8f7fa;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink-900 antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-ink-950;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Faint engineering grid used behind dark hero sections. */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  .bg-grid-light {
+    background-image:
+      linear-gradient(to right, rgb(19 16 29 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(19 16 29 / 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 100%);
+  }
+
+  .text-gradient {
+    @apply bg-linear-to-r from-brand-300 via-brand-400 to-ember-400 bg-clip-text text-transparent;
+  }
+
+  /* Long-form copy: legal pages and blog posts. */
+  .prose-vx {
+    @apply max-w-none text-[1.0625rem] leading-8 text-ink-700;
+  }
+  .prose-vx > * + * {
+    @apply mt-5;
+  }
+  .prose-vx h2 {
+    @apply mt-12 scroll-mt-28 text-2xl font-semibold tracking-tight text-ink-950;
+  }
+  .prose-vx h3 {
+    @apply mt-8 text-lg font-semibold text-ink-950;
+  }
+  .prose-vx strong {
+    @apply font-semibold text-ink-900;
+  }
+  .prose-vx a {
+    @apply font-medium text-brand-700 underline decoration-brand-300 underline-offset-4 hover:decoration-brand-600;
+  }
+  .prose-vx ul {
+    @apply list-disc space-y-2 pl-6 marker:text-brand-400;
+  }
+  .prose-vx ol {
+    @apply list-decimal space-y-2 pl-6 marker:text-ink-400;
+  }
+  .prose-vx li > p {
+    @apply mt-0;
+  }
+  .prose-vx blockquote {
+    @apply border-l-2 border-brand-400 pl-5 text-ink-600 italic;
+  }
+  .prose-vx hr {
+    @apply my-10 border-ink-100;
+  }
+  .prose-vx table {
+    @apply w-full border-collapse text-left text-sm;
+  }
+  .prose-vx th,
+  .prose-vx td {
+    @apply border border-ink-100 px-3 py-2 align-top;
+  }
+}
