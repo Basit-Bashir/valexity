@@ -15,6 +15,7 @@ import {
   type Category,
   type Service,
 } from "@/lib/services";
+import { servicePhotos } from "@/lib/service-photos";
 import { process, site } from "@/lib/site";
 
 /** "Managed IT Services" -> "managed IT services" (keeps acronyms such as IT, API and VoIP). */
@@ -49,6 +50,7 @@ export function ServicePage({ slug }: { slug: string }) {
       <JsonLd data={graph(serviceJsonLd(s, path), faqJsonLd(s.faqs), breadcrumbJsonLd(crumbs))} />
 
       <PageHero
+        photo={servicePhotos[s.slug]}
         eyebrow={cat.name}
         title={s.headline}
         lede={s.lede}
@@ -168,7 +170,7 @@ export function CategoryPage({ slug }: { slug: string }) {
     <>
       <JsonLd data={graph(serviceJsonLd(c, path, list), faqJsonLd(c.faqs), breadcrumbJsonLd(crumbs))} />
 
-      <PageHero eyebrow={c.eyebrow} title={c.headline} lede={c.lede} crumbs={crumbs}>
+      <PageHero photo={servicePhotos[c.slug]} eyebrow={c.eyebrow} title={c.headline} lede={c.lede} crumbs={crumbs}>
         <ButtonLink href="#get-started" arrow>
           Get started
         </ButtonLink>

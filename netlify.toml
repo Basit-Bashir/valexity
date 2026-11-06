@@ -30,6 +30,13 @@
   to = "/referral"
   status = 301
 
+# Website design and development were merged into one page.
+[[redirects]]
+  from = "/website-design-services"
+  to = "/website-development-services"
+  status = 301
+  force = true
+
 # ── Security headers ─────────────────────────────────────────────────────────
 # The audit found only 2 of 6 recommended headers. If you add analytics or a chat
 # widget (GA4, Pagesense, Apollo, Chatbase), add their domains to script-src,

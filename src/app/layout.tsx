@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Header, type NavGroup } from "@/components/header";
 import { JsonLd } from "@/components/json-ld";
@@ -10,6 +10,7 @@ import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], display: "swap" });
+const display = Instrument_Serif({ variable: "--font-instrument-serif", subsets: ["latin"], weight: "400", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -52,7 +53,7 @@ const navGroups: NavGroup[] = categories.map((c) => ({
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-US" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en-US" className={`${geistSans.variable} ${geistMono.variable} ${display.variable}`}>
       <body className="flex min-h-dvh flex-col">
         <JsonLd data={graph(organizationJsonLd(), websiteJsonLd())} />
         <Header

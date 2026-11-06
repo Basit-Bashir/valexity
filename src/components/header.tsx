@@ -71,6 +71,9 @@ export function Header({ groups, links, portals, phone }: Props) {
     return () => document.removeEventListener("keydown", onKey);
   }, [mobileOpen]);
 
+  // On the homepage the header floats over the full-height hero until the visitor scrolls.
+  const overHero = pathname === "/" && !scrolled && !megaOpen && !mobileOpen;
+
   const servicesActive =
     pathname === "/services" || groups.some((g) => g.href === pathname || g.items.some((i) => i.href === pathname));
 
@@ -87,7 +90,11 @@ export function Header({ groups, links, portals, phone }: Props) {
     <header
       className={cx(
         "sticky top-0 z-50 border-b transition-colors duration-300",
-        scrolled || megaOpen ? "border-white/10 bg-ink-950/85 backdrop-blur-xl" : "border-transparent bg-ink-950",
+        overHero
+          ? "border-transparent bg-transparent"
+          : scrolled || megaOpen
+            ? "border-white/10 bg-ink-950/85 backdrop-blur-xl"
+            : "border-transparent bg-ink-950",
       )}
     >
       <a

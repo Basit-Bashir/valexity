@@ -8,6 +8,7 @@
 @theme {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-display: var(--font-instrument-serif), ui-serif, Georgia, serif;
 
   --color-brand-50: #f7f1fe;
   --color-brand-100: #eee2fd;
@@ -58,6 +59,12 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+@keyframes vx-flow {
+  to {
+    stroke-dashoffset: 44;
   }
 }
 
@@ -112,8 +119,27 @@
     mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 100%);
   }
 
-  .text-gradient {
-    @apply bg-linear-to-r from-brand-300 via-brand-400 to-ember-400 bg-clip-text text-transparent;
+  /* Data moving up through the hero architecture diagram. */
+  .vx-flow {
+    stroke-dasharray: 4 18;
+    animation: vx-flow 1.6s linear infinite;
+  }
+
+  /* Hero diagram labels. SVG text shrinks with the drawing, so small screens get
+     larger names and drop the descriptions to stay readable. */
+  .vx-label-name {
+    font-size: 23px;
+  }
+  .vx-label-sub {
+    font-size: 16px;
+  }
+  @media (max-width: 639px) {
+    .vx-label-name {
+      font-size: 32px;
+    }
+    .vx-label-sub {
+      display: none;
+    }
   }
 
   /* Long-form copy: legal pages and blog posts. */

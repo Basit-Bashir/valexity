@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { ArrowUpRight, Activity, DatabaseBackup, Headset, ShieldCheck, RefreshCcw } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { HomeHero } from "@/components/home-hero";
 import { Icon } from "@/components/icons";
 import { JsonLd } from "@/components/json-ld";
-import { CtaBand, FaqList, PartnerStrip, ProcessSteps } from "@/components/sections";
+import { CtaBand, FaqList, ProcessSteps } from "@/components/sections";
 import { ButtonLink, CheckList, Container, Eyebrow, SectionHeading } from "@/components/ui";
 import { posts } from "@/lib/blog";
 import { faqJsonLd, graph, pageMetadata } from "@/lib/seo";
@@ -20,7 +21,7 @@ export const metadata = pageMetadata({
 const homeFaqs: Faq[] = [
   {
     q: "What does Valexity Technologies do?",
-    a: "Valexity Technologies is a managed IT and managed security service provider headquartered in Hanover Park, Illinois. We run IT for small and mid-sized businesses (help desk, cybersecurity, cloud, backup and procurement), and also provide business VoIP, broadband, cellular, website design and development, and API integration.",
+    a: "Valexity Technologies is a managed IT and managed security service provider headquartered in Hanover Park, Illinois. We run IT for small and mid-sized businesses (help desk, cybersecurity, cloud, backup and procurement), and also provide business VoIP, broadband, cellular, website design and development, AI and automation, and API integration.",
   },
   {
     q: "Where is Valexity located, and which areas do you serve?",
@@ -36,107 +37,12 @@ const homeFaqs: Faq[] = [
   },
 ];
 
-const consoleRows = [
-  { icon: ShieldCheck, label: "Endpoint protection", value: "Active" },
-  { icon: RefreshCcw, label: "Patch cycle", value: "On schedule" },
-  { icon: DatabaseBackup, label: "Nightly backups", value: "Verified" },
-  { icon: Activity, label: "Network monitoring", value: "24/7" },
-  { icon: Headset, label: "Help desk", value: "Online" },
-];
-
 export default function HomePage() {
   return (
     <>
       <JsonLd data={graph(faqJsonLd(homeFaqs))} />
 
-      {/* ───────────── Hero ───────────── */}
-      <section className="relative isolate overflow-hidden bg-ink-950">
-        <div aria-hidden className="bg-grid absolute inset-0 -z-10" />
-        <div aria-hidden className="absolute -top-64 left-1/2 -z-10 h-[40rem] w-[64rem] -translate-x-1/2 rounded-full bg-brand-600/30 blur-[140px]" />
-        <div aria-hidden className="absolute right-[-8%] bottom-[-20%] -z-10 h-96 w-96 rounded-full bg-ember-500/20 blur-[120px]" />
-        <Container className="grid items-center gap-16 pt-16 pb-24 sm:pt-24 lg:grid-cols-[1.15fr_1fr] lg:pt-28 lg:pb-32">
-          <div className="animate-fade-up">
-            <Link
-              href="/cyber-security"
-              className="inline-flex items-center gap-2 rounded-full bg-white/5 py-1.5 pr-3 pl-1.5 text-sm text-ink-300 ring-1 ring-white/10 transition-colors hover:bg-white/10"
-            >
-              <span className="rounded-full bg-brand-500/20 px-2.5 py-0.5 text-xs font-medium text-brand-200">MSSP</span>
-              Managed IT and security, under one roof
-              <ArrowUpRight aria-hidden className="size-3.5" />
-            </Link>
-            <h1 className="mt-8 text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.02]">
-              Redefining tech.{" "}
-              <span className="text-gradient block pb-2">Smarter, safer, seamless.</span>
-            </h1>
-            <p className="mt-7 max-w-xl text-lg leading-8 text-pretty text-ink-300 sm:text-xl sm:leading-9">
-              Valexity Technologies runs IT, cybersecurity, telecom and web for growing businesses, so your team can focus on the work
-              and not the technology.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <ButtonLink href="/contact" arrow>
-                Book a free assessment
-              </ButtonLink>
-              <ButtonLink href="/services" variant="secondary">
-                Explore services
-              </ButtonLink>
-            </div>
-            <dl className="mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-white/10 pt-8">
-              {[
-                { k: "Help desk", v: "24/7" },
-                { k: "Partner", v: "Microsoft" },
-                { k: "HQ", v: "Hanover Park, IL" },
-              ].map((s) => (
-                <div key={s.k}>
-                  <dt className="font-mono text-[0.6875rem] tracking-[0.16em] text-ink-500 uppercase">{s.k}</dt>
-                  <dd className="mt-1.5 text-base font-medium text-white sm:text-lg">{s.v}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          {/* Illustrative operations console (decorative). */}
-          <div aria-hidden className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="absolute -inset-6 rounded-[2.5rem] bg-linear-to-br from-brand-500/30 via-transparent to-ember-500/20 blur-2xl" />
-            <div className="relative rounded-[2rem] bg-ink-900/80 p-2 ring-1 ring-white/10 backdrop-blur-xl">
-              <div className="rounded-[1.6rem] bg-ink-950/80 p-6 ring-1 ring-white/5">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="relative flex size-2.5">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                      <span className="relative inline-flex size-2.5 rounded-full bg-emerald-400" />
-                    </span>
-                    <span className="text-sm font-medium text-white">All systems protected</span>
-                  </div>
-                  <span className="font-mono text-xs text-ink-500">valexity / ops</span>
-                </div>
-                <ul className="mt-6 space-y-2">
-                  {consoleRows.map(({ icon: I, label, value }) => (
-                    <li key={label} className="flex items-center justify-between rounded-2xl bg-white/[0.03] px-4 py-3.5 ring-1 ring-white/5">
-                      <span className="flex items-center gap-3 text-sm text-ink-200">
-                        <span className="grid size-8 place-items-center rounded-xl bg-brand-500/15 text-brand-300">
-                          <I className="size-4" strokeWidth={1.8} />
-                        </span>
-                        {label}
-                      </span>
-                      <span className="rounded-full bg-emerald-400/10 px-2.5 py-1 font-mono text-xs text-emerald-300">{value}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-6 rounded-2xl bg-linear-to-r from-brand-600/25 to-ember-500/15 p-4 ring-1 ring-white/10">
-                  <div className="flex items-end justify-between gap-1.5" style={{ height: 56 }}>
-                    {[38, 52, 44, 63, 58, 72, 66, 80, 74, 88, 82, 94].map((h, i) => (
-                      <span key={i} className="w-full rounded-t bg-linear-to-t from-brand-500/50 to-brand-300" style={{ height: `${h}%` }} />
-                    ))}
-                  </div>
-                  <p className="mt-3 font-mono text-[0.6875rem] tracking-wider text-ink-400 uppercase">Protection activity</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <PartnerStrip />
+      <HomeHero />
 
       {/* ───────────── What we do (direct answer) ───────────── */}
       <section className="bg-white py-24 sm:py-32">
@@ -283,7 +189,7 @@ export default function HomePage() {
               { t: "Managed IT", d: "Help desk, patching, MFA and backup.", href: "/managed-it-services", icon: "monitor" as const },
               { t: "Cybersecurity", d: "24/7 monitoring, endpoint and network protection.", href: "/cyber-security", icon: "shield" as const },
               { t: "Business VoIP", d: "Modern phone systems that work anywhere.", href: "/voip-services", icon: "phone" as const },
-              { t: "Websites", d: "Fast, secure, search-ready design and development.", href: "/website-design-services", icon: "palette" as const },
+              { t: "Websites", d: "Fast, secure, search-ready design and development.", href: "/website-development-services", icon: "palette" as const },
             ].map((x, i) => (
               <Link
                 key={x.href}

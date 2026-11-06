@@ -1,4 +1,5 @@
 import {
+  Bot,
   Cloud,
   CodeXml,
   Compass,
@@ -37,6 +38,7 @@ const map: Record<IconName | "headset" | "compass" | "zap", LucideIcon> = {
   monitor: MonitorCog,
   globe: Globe,
   radio: RadioTower,
+  bot: Bot,
   headset: Headset,
   compass: Compass,
   zap: Zap,

@@ -17,7 +17,7 @@ export const site = {
     "Valexity Technologies is a managed IT and cybersecurity provider in Hanover Park, IL, delivering managed IT, cloud, telecom and web services to businesses.",
   /** A self-contained, quotable description used on the homepage, /about and in llms.txt. */
   summary:
-    "Valexity Technologies is a managed IT and managed security service provider (MSSP) headquartered in Hanover Park, Illinois. We run day-to-day IT for small and mid-sized businesses, including help desk support, cybersecurity, Microsoft 365 and Azure, backup and disaster recovery, and IT procurement. We also deliver business VoIP, broadband, cellular, website design and development, and API integration, so one accountable partner covers your technology, connectivity and online presence.",
+    "Valexity Technologies is a managed IT and managed security service provider (MSSP) headquartered in Hanover Park, Illinois. We run day-to-day IT for small and mid-sized businesses, including help desk support, cybersecurity, Microsoft 365 and Azure, backup and disaster recovery, and IT procurement. We also deliver business VoIP, broadband, cellular, website design and development, AI and automation, and API integration, so one accountable partner covers your technology, connectivity and online presence.",
   email: "info@valexity.com",
   hrEmail: "hr@valexity.com",
   privacyEmail: "privacy@valexity.com",

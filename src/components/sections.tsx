@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, Plus } from "lucide-react";
 import type { ReactNode } from "react";
 import type { Faq, Service } from "@/lib/services";
+import type { Photo } from "@/lib/service-photos";
 import { partners, site } from "@/lib/site";
 import { Icon } from "./icons";
 import { ButtonLink, Container, Eyebrow, SectionHeading, cx } from "./ui";
@@ -17,6 +18,7 @@ export function PageHero({
   crumbs,
   children,
   aside,
+  photo,
 }: {
   eyebrow?: string;
   title: ReactNode;
@@ -24,15 +26,47 @@ export function PageHero({
   crumbs?: Crumb[];
   children?: ReactNode;
   aside?: ReactNode;
+  /** Full-width photo banner above the heading. Pages without one keep the plain dark grid. */
+  photo?: Photo;
 }) {
   return (
-    <section className="relative isolate overflow-hidden bg-ink-950 pt-10 pb-20 sm:pt-14 sm:pb-24">
-      <div aria-hidden className="bg-grid absolute inset-0 -z-10" />
-      <div aria-hidden className="absolute -top-48 right-[-10%] -z-10 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-[120px]" />
-      <div aria-hidden className="absolute top-24 left-[-12%] -z-10 h-72 w-72 rounded-full bg-ember-500/15 blur-[110px]" />
-      <Container>
+    <section className="relative isolate overflow-hidden bg-ink-950 pb-20 sm:pb-24">
+      {photo ? (
+        <div className="relative h-56 sm:h-72 lg:h-[26rem]">
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: photo.position ?? "center" }}
+          />
+          {/* Only the bottom edge fades, so the photo stays clear and blends into the heading below. */}
+          <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-ink-950 to-transparent" />
+          {photo.credit && (
+            <p className="absolute right-3 bottom-2 text-[0.6875rem] text-white/70">
+              Photo:{" "}
+              <a href={photo.credit.source} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white">
+                {photo.credit.by}
+              </a>
+              ,{" "}
+              <a href={photo.credit.licenseUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white">
+                {photo.credit.license}
+              </a>
+            </p>
+          )}
+        </div>
+      ) : (
+        <>
+          <div aria-hidden className="bg-grid absolute inset-0 -z-10" />
+          <div aria-hidden className="absolute -top-48 right-[-10%] -z-10 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-[120px]" />
+          <div aria-hidden className="absolute top-24 left-[-12%] -z-10 h-72 w-72 rounded-full bg-ember-500/15 blur-[110px]" />
+        </>
+      )}
+      <Container className={photo ? "pt-6" : "pt-10 sm:pt-14"}>
         {crumbs && crumbs.length > 0 && (
-          <nav aria-label="Breadcrumb" className="mb-10">
+          <nav aria-label="Breadcrumb" className={photo ? "mb-8" : "mb-10"}>
             <ol className="flex flex-wrap items-center gap-2 text-sm text-ink-400">
               <li>
                 <Link href="/" className="hover:text-white">

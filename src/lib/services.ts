@@ -26,7 +26,8 @@ export type IconName =
   | "smartphone"
   | "monitor"
   | "globe"
-  | "radio";
+  | "radio"
+  | "bot";
 
 export type Faq = { q: string; a: string };
 export type Item = { title: string; body: string };
@@ -101,16 +102,17 @@ export const categories: Category[] = [
     slug: "digital-services",
     name: "Digital Services",
     icon: "globe",
-    metaTitle: "Digital Services: Website Design, Development & API Integration",
+    metaTitle: "Digital Services: Web Design & Development, AI & APIs",
     metaDescription:
-      "Website design, full-stack web development and API integration from Valexity Technologies. Fast, secure, search-ready sites and connected systems.",
+      "Website design and development, AI and automation, and API integration from Valexity Technologies. Fast, secure sites and connected, intelligent systems.",
     eyebrow: "Digital Services",
-    headline: "Websites and integrations built by the same team that secures your IT",
-    lede: "Valexity designs and builds websites, web applications and API integrations for businesses that want a fast, secure online presence and systems that talk to each other. Because our web team works alongside our IT and security engineers, hosting, security and maintenance are handled from day one.",
-    summary: "Website design, website development and API integration.",
+    headline: "Websites, AI and integrations built by the team that secures your IT",
+    lede: "Valexity designs and builds websites and web applications, puts AI and automation to work, and connects your systems through APIs. Because our digital team works alongside our IT and security engineers, hosting, security and maintenance are handled from day one.",
+    summary: "Website design and development, AI and automation, and API integration.",
     body: [
       "A website is often the first conversation a customer has with your business. We design sites that load quickly, read well on any device, rank in search and turn visitors into inquiries.",
       "Behind the site, we connect the tools you already use, such as CRMs, payment gateways, accounting platforms and internal databases, so data moves automatically instead of being re-typed.",
+      "We then put that connected data to work with AI assistants and automated workflows, built on Microsoft Azure with the guardrails and compliance controls your business needs.",
     ],
     faqs: [
       {
@@ -554,34 +556,30 @@ export const services: Service[] = [
 
   // ─────────────────────────── DIGITAL SERVICES ───────────────────────────
   {
-    slug: "website-design-services",
+    slug: "website-development-services",
     category: "digital",
-    name: "Website Design",
-    icon: "palette",
-    metaTitle: "Website Design: Custom, Responsive & E-commerce Websites",
+    name: "Website Design & Development",
+    icon: "code",
+    metaTitle: "Website Design & Development: Custom Sites & Web Apps",
     metaDescription:
-      "Custom website design for businesses: responsive layouts, e-commerce, UI/UX, easy content management, redesigns and ongoing maintenance.",
-    headline: "Websites that look the part and bring in business",
-    lede: "Valexity designs custom websites that represent your brand and turn visitors into customers. Every site we design is responsive on any device, fast, accessible and easy to update, and because our web team works with our IT and security engineers, hosting, security and maintenance are taken care of.",
+      "Custom website design and full-stack development: responsive sites, e-commerce, web apps, CMS, cloud deployment and ongoing maintenance from Valexity.",
+    headline: "Websites and web apps, designed and built by one team",
+    lede: "Valexity designs and builds custom websites and web applications from first sketch to launch. One team handles the design your customers see, the front end and back end that power it, and the cloud hosting it runs on. Every site is responsive, fast, accessible and easy to update, and because our developers work with our IT and security engineers, security and maintenance are covered from day one.",
     summary:
-      "Custom, responsive websites with strong UI/UX, e-commerce and easy content management.",
-    itemsTitle: "Design services",
+      "Custom, responsive websites and full-stack web apps, from UI/UX and e-commerce to cloud deployment and maintenance.",
+    itemsTitle: "What we design and build",
     items: [
       {
         title: "Custom website design",
         body: "An original design built around your brand, your customers and what you want visitors to do, not a template that looks like everyone else's.",
       },
       {
-        title: "Responsive design",
-        body: "Layouts that adapt to phones, tablets and desktops, so the site reads well and works properly for every visitor, on every screen.",
+        title: "UI/UX and responsive design",
+        body: "Clear navigation, readable typography and layouts that adapt to phones, tablets and desktops, so visitors find what they need quickly on any screen.",
       },
       {
         title: "E-commerce solutions",
         body: "Online stores with product catalogs, secure checkout, payment gateways and order management, designed to make buying easy.",
-      },
-      {
-        title: "UI/UX design",
-        body: "Clear navigation, readable typography and thoughtful page structure, tested with real tasks so visitors find what they need quickly.",
       },
       {
         title: "Content management systems",
@@ -592,6 +590,18 @@ export const services: Service[] = [
         body: "A modern refresh for an outdated site, keeping the content and search rankings you've earned while improving design, speed and conversion.",
       },
       {
+        title: "Front-end development",
+        body: "Responsive, interactive and accessible user interfaces built with modern frameworks such as React, Next.js, Angular and Vue.js.",
+      },
+      {
+        title: "Back-end and database development",
+        body: "Secure server-side logic built with Node.js, Python, Ruby on Rails or PHP, plus databases such as PostgreSQL, MySQL, MongoDB and Firebase, designed for performance and growth.",
+      },
+      {
+        title: "Cloud deployment and DevOps",
+        body: "Deployment and scaling on AWS, Google Cloud and Microsoft Azure, with automated testing and CI/CD pipelines so new features ship quickly and safely.",
+      },
+      {
         title: "Ongoing support and maintenance",
         body: "Updates, security patches, backups, uptime monitoring and content changes, so the site stays fast and secure after launch.",
       },
@@ -599,14 +609,15 @@ export const services: Service[] = [
     forWho: [
       "Businesses whose website looks dated or doesn't work on phones",
       "Companies launching a new brand, product or location",
-      "Teams that can't update their own site easily",
       "Retailers ready to sell online",
+      "Teams replacing spreadsheets with a purpose-built web app",
+      "Companies whose current site is slow or hard to change",
     ],
     outcomes: [
       "A modern site that reflects your brand",
-      "More inquiries from the same traffic",
       "Fast load times and strong search foundations",
       "A site your team can update",
+      "Hosting, security and monitoring handled",
     ],
     faqs: [
       {
@@ -619,10 +630,97 @@ export const services: Service[] = [
       },
       {
         q: "Do you design accessible websites?",
-        a: "Yes. We design to WCAG 2.2 Level AA guidelines, including sufficient color contrast, keyboard navigation, descriptive alt text and properly labelled forms, so your site works for everyone and reduces legal risk.",
+        a: "Yes. We design to WCAG 2.2 Level AA guidelines, including sufficient color contrast, keyboard navigation, descriptive alt text and properly labeled forms, so your site works for everyone and reduces legal risk.",
+      },
+      {
+        q: "What is full-stack development?",
+        a: "Full-stack development covers both the front end of an application (what users see and interact with) and the back end (servers, databases, APIs and infrastructure). A full-stack team like Valexity's can deliver a complete, working product without you coordinating several separate vendors.",
+      },
+      {
+        q: "Which technologies do you use?",
+        a: "We choose technology for each project based on your requirements, but commonly use React and Next.js for the front end; Node.js or Python for the back end; PostgreSQL or MongoDB for data; and AWS, Azure or Google Cloud for hosting. We favor widely supported tools so your application is easy to maintain long term.",
+      },
+      {
+        q: "Who owns the website and its code?",
+        a: "Ownership of the source code, documentation and hosting accounts is written into your statement of work before the project starts, so you know exactly what you'll receive at handover. Ask us about it during your proposal and we'll walk you through the terms.",
       },
     ],
-    related: ["website-development-services", "api-integration-services", "cloud-services"],
+    related: ["ai-automation-services", "api-integration-services", "cloud-services"],
+  },
+  {
+    slug: "ai-automation-services",
+    category: "digital",
+    name: "AI & Automation",
+    icon: "bot",
+    metaTitle: "AI & Automation Services: Secure Business AI on Azure",
+    metaDescription:
+      "AI assistants and workflow automation for businesses, built on Microsoft Azure and connected through APIs and MCP, with guardrails and compliance built in.",
+    headline: "Put AI to work, with guardrails your business can trust",
+    lede: "Valexity's AI and automation services help businesses use AI safely and practically. We find the tasks worth automating, build AI assistants and automated workflows connected to your systems through APIs and MCP, deploy them on Microsoft Azure, and add the guardrails and compliance controls that keep your data protected. Because we also run IT and security, AI gets the same care as the rest of your technology.",
+    summary:
+      "AI assistants and workflow automation on Azure, connected through APIs and MCP, with guardrails and compliance built in.",
+    itemsTitle: "What we build",
+    items: [
+      {
+        title: "AI readiness and strategy",
+        body: "We review your processes, data and security, identify where AI will genuinely save time, and give you a prioritized plan, starting with a small, measurable project rather than a large, risky one.",
+      },
+      {
+        title: "AI assistants and copilots",
+        body: "Assistants that answer questions from your own documents, policies and systems, delivered through a web app, your website or the tools your team already uses.",
+      },
+      {
+        title: "Workflow automation",
+        body: "Automations that handle repetitive work across email, forms, your CRM, ticketing and accounting systems, with a person approving any step that needs human judgment.",
+      },
+      {
+        title: "MCP and API integration",
+        body: "We connect AI to your business systems through APIs and Model Context Protocol (MCP) servers, giving each assistant access only to the tools and data it actually needs.",
+      },
+      {
+        title: "Azure AI deployment",
+        body: "We deploy AI workloads on Microsoft Azure with single sign-on, role-based access, private networking and monitoring, so they run inside an environment your business controls.",
+      },
+      {
+        title: "AI guardrails and compliance",
+        body: "Content filtering, personal data protection, defenses against prompt injection, human review and audit logs, aligned with the standards that apply to you, such as HIPAA and GDPR.",
+      },
+    ],
+    forWho: [
+      "Teams spending hours on repetitive, manual tasks",
+      "Businesses with staff already using public AI tools without a policy",
+      "Organizations with valuable knowledge buried in documents",
+      "Regulated businesses that need AI with audit trails and access controls",
+    ],
+    outcomes: [
+      "AI projects tied to real business tasks",
+      "Assistants connected to your own systems",
+      "Guardrails and human review where they matter",
+      "Audit logs and access controls from day one",
+    ],
+    faqs: [
+      {
+        q: "What is AI automation?",
+        a: "AI automation combines AI models with workflow tools so software can handle tasks that once needed a person, such as reading an email, drafting a reply, extracting data from a document or updating a CRM. Valexity designs these workflows so people stay in control, approving any step where a mistake would matter.",
+      },
+      {
+        q: "What is MCP (Model Context Protocol)?",
+        a: "Model Context Protocol (MCP) is an open standard that lets AI assistants connect to business tools and data in a consistent way. Instead of building a custom connection for every system, an MCP server exposes approved actions to the assistant. Valexity uses MCP alongside APIs and limits each assistant to only what it needs.",
+      },
+      {
+        q: "What are AI guardrails?",
+        a: "AI guardrails are controls that keep an AI system safe and on task. They include filtering harmful or off-topic content, blocking personal data from leaving your systems, defending against prompt injection, requiring human approval for sensitive actions, and logging activity so it can be reviewed.",
+      },
+      {
+        q: "Is our company data safe with AI?",
+        a: "It depends on how AI is deployed. Pasting data into public tools can expose it, so Valexity builds on Microsoft Azure in an environment your business controls, with single sign-on, role-based access and logging. We also review each model provider's data terms with you before anything goes live.",
+      },
+      {
+        q: "Where should a small business start with AI?",
+        a: "Start with one repetitive, well-defined task and clear success measures, such as answering common internal questions or processing a standard form. We begin with an assessment of your processes, data and security, then build a focused first project before expanding to other teams.",
+      },
+    ],
+    related: ["api-integration-services", "website-development-services", "cyber-security"],
   },
   {
     slug: "api-integration-services",
@@ -689,73 +787,7 @@ export const services: Service[] = [
         a: "Vendors regularly update or retire API versions. Under a maintenance plan, we monitor your integrations, track vendor change notices, and update your code before old versions are switched off, so integrations keep working.",
       },
     ],
-    related: ["website-development-services", "website-design-services", "cloud-services"],
-  },
-  {
-    slug: "website-development-services",
-    category: "digital",
-    name: "Website Development",
-    icon: "code",
-    metaTitle: "Website Development: Full-Stack Web & App Development",
-    metaDescription:
-      "Full-stack website and web application development: front end, back end, databases, APIs, cloud deployment and DevOps from Valexity.",
-    headline: "Full-stack development, from the interface to the infrastructure",
-    lede: "Valexity's website development team builds fast, scalable web applications end to end, covering the front end your customers see, the back end and databases that power it, and the cloud infrastructure it runs on. We use modern, well-supported technologies and DevOps practices so your application is reliable to run and easy to improve.",
-    summary: "Front end, back end, databases, APIs, cloud deployment and DevOps.",
-    itemsTitle: "Our full-stack development services",
-    items: [
-      {
-        title: "Front-end development",
-        body: "Responsive, interactive and accessible user interfaces built with modern frameworks such as React, Next.js, Angular and Vue.js.",
-      },
-      {
-        title: "Back-end development",
-        body: "Secure server-side logic and business rules built with Node.js, Python, Ruby on Rails or PHP, designed for performance and maintainability.",
-      },
-      {
-        title: "Database design and management",
-        body: "Relational and non-relational databases, including PostgreSQL, MySQL, MongoDB and Firebase, designed for reliability, performance and growth.",
-      },
-      {
-        title: "API development and integration",
-        body: "Custom APIs and third-party integrations with payment gateways, CRMs and external services, so your application connects to the rest of your business.",
-      },
-      {
-        title: "Cloud integration and deployment",
-        body: "Deployment and scaling on AWS, Google Cloud and Microsoft Azure, with environments, backups and monitoring set up properly from the start.",
-      },
-      {
-        title: "DevOps and continuous integration",
-        body: "Automated testing and continuous integration and delivery (CI/CD) pipelines, so new features ship quickly and safely.",
-      },
-    ],
-    forWho: [
-      "Businesses that need a custom web application or portal",
-      "Teams replacing spreadsheets with a purpose-built tool",
-      "Companies whose current site is slow or hard to change",
-      "Start-ups building a first version of their product",
-    ],
-    outcomes: [
-      "A fast, secure application built to scale",
-      "Clean, documented code you own",
-      "Automated testing and deployment",
-      "Hosting and monitoring handled",
-    ],
-    faqs: [
-      {
-        q: "What is full-stack development?",
-        a: "Full-stack development covers both the front end of an application (what users see and interact with) and the back end (servers, databases, APIs and infrastructure). A full-stack team like Valexity's can deliver a complete, working product without you coordinating several separate vendors.",
-      },
-      {
-        q: "Which technologies do you use?",
-        a: "We choose technology for each project based on your requirements, but commonly use React and Next.js for the front end; Node.js or Python for the back end; PostgreSQL or MongoDB for data; and AWS, Azure or Google Cloud for hosting. We favor widely supported tools so your application is easy to maintain long term.",
-      },
-      {
-        q: "Who owns the code?",
-        a: "You do. Once the project is paid for, the source code, documentation and accounts belong to your business, so you're never locked in to one provider.",
-      },
-    ],
-    related: ["api-integration-services", "website-design-services", "cloud-services"],
+    related: ["website-development-services", "ai-automation-services", "cloud-services"],
   },
 
   // ─────────────────────────── TELECOM SERVICES ───────────────────────────

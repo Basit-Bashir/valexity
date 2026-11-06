@@ -126,6 +126,10 @@ export function organizationJsonLd() {
       "Website design",
       "Web development",
       "API integration",
+      "AI automation",
+      "AI guardrails",
+      "Model Context Protocol (MCP)",
+      "Azure AI",
     ],
     sameAs: [site.social.linkedin, site.social.facebook, site.social.instagram],
   };

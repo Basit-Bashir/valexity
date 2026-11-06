@@ -16,6 +16,7 @@ npm run build && npm start
 | All service and hub page copy, including FAQs | `src/lib/services.ts` |
 | Blog posts (Markdown) | `src/lib/blog.ts` |
 | Legal pages (Markdown, rendered on the server) | `content/legal/*.md` |
+| Service page photos, with source and license for each | `src/lib/service-photos.ts`, `public/services/` |
 | Metadata and JSON-LD helpers | `src/lib/seo.ts` |
 | Sitemap and llms.txt route list | `src/lib/routes.ts` |
 | Security headers and redirects (Netlify) | `netlify.toml` |
@@ -64,3 +65,6 @@ These items need real information. None of it has been invented on the site.
 7. **Profiles.** Once they exist, add Google Business Profile, Wikidata and Clutch URLs to `sameAs` in `organizationJsonLd()`.
 8. **Analytics and chat.** GA4, Pagesense, Apollo and Chatbase are not included because no IDs or consent manager were supplied. When adding them, include a consent banner and update the CSP in `netlify.toml`.
 9. **Legal review.** The accessibility statement was updated to describe the new site (keyboard menu; no accessibility widget). Have the client approve that change.
+10. **AI & Automation.** The /ai-automation-services page and the homepage hero describe a service built from the client's brief (web app, API, MCP, Azure, guardrails, compliance). Have the client confirm each capability and the HIPAA and GDPR wording before launch.
+11. **Code ownership.** The Terms and MSA don't cover who owns website code, so the FAQ on /website-development-services says it's set in the statement of work. Update it if the client has a standard position.
+12. **Service photos.** The 15 banner photos are real stock photographs from Wikimedia Commons, not Valexity's own staff or offices. 7 are CC BY and must keep the credit shown on the banner; 8 are CC0. Replace them with the client's own photos where possible (swap the file in `public/services` and remove `credit`).
